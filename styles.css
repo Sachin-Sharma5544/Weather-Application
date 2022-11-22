@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /* //background-image:url("./images\ folder/weatherapp_background-image.jpeg") ;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background-color: rgba(0, 0, 0,0.8);
+
+}
+
+.my-nav-links a{
+    padding: 0px 20px;
+
+}
+
+.my-form {
+    margin-right: 50px;
+}
+
+.city-container{
+    border: 2px solid orange;
+    height: 400px;
+    margin-top: 50px;
+    border-radius: 30px;
+    background-color: rgba(30, 144, 255,0.7);
+}
+
+.city-name{
+    margin-top: 70px;
+    margin-left: 20px;
+    border-radius: 20px;
+    padding: 5px 8px;
+    width: 20vw;
+    border: 2px solid orange;
+}
+
+.get-button button {
+    border: 2px solid orange;
+    padding: 0.4vw 0.8vw;
+    margin-top: 2vw;
+    margin-left: 1.2vw;
+    border-radius: 1.5vw;
+}
