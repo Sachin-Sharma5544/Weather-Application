@@ -12,16 +12,23 @@
 
     <nav class="navbar navbar-dark my-nav">
         <div class="container-fluid">
-            <div class="container my-nav-links">
-                <a class="navbar-brand" href="#">Weather Info</a>
-                <a class="navbar-brand" href="#">Home</a>
-                <a class="navbar-brand" href="#">About Us</a>
-                <a class="navbar-brand" href="#">Contact US</a>
+            <div class="row">
+                <div class="col-9">
+                    <div class="container my-nav-links">
+                        <a class="navbar-brand" href="#">Weather Info</a>
+                        <a class="navbar-brand" href="#">Home</a>
+                        <a class="navbar-brand" href="#">About Us</a>
+                        <a class="navbar-brand" href="#">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <form class="d-flex my-form" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 200px;">
+                        <button class="btn btn-outline-success my-search-btn" type="submit">Search</button>
+                    </form>
+                </div>
             </div>
-            <form class="d-flex my-form" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-search-btn" type="submit">Search</button>
-            </form>
+            
         </div>
       </nav>
 
@@ -32,15 +39,17 @@
                 <div class="col-4"></div>
                 <div class="col-4">
                     <div class="city-container">
-                        <h3 class="text-center py-4 text-secondary">Get Weather Information</h3>
-                        <input type="text" placeholder="Enter City Name" class="city-name">
+                        <h3 class="text-center py-4 text-white">Get Weather Information</h3>
+                        <input type="text" placeholder="Enter City Name" class="city-name" >
                         <div class="get-button">
                             <button >Get Info</button>
                         </div>
                         <div class="weather-data-vals hidden">
-                            <h5>Temp: <span class="temp-val"></span></h5>
-                            <h5>Humidity: <span class="humd-val"></span></h5>
-                            <h5>AQI: <span class="aqi-val"></span></h5>
+                            <h6>Temp: <span class="temp-val"></span></h6>
+                            <h6>Humidity: <span class="humd-val"></span></h6>
+                            <h6>Pressure: <span class="pressure"></span></h6>
+                            <h6>Country: <span class="country"></span></h6>
+                            <h6><span class="error"></span></h6>
                             <div class="current-time">
                                 <span>Time:</span>
                                 <span class="hour-value"></span>
@@ -50,6 +59,7 @@
                                 <span class="sec-value "></span>
                                 <!-- <span class="am-pm"></span> -->
                                 <span class="time-zone">IST</span>
+                                
                             </div>
 
                             <div class="current-date">
