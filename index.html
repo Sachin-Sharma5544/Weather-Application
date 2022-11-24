@@ -10,10 +10,29 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-dark my-nav">
-        <div class="container-fluid">
+    <div class="container-xxl my-nav-container">
+        <div class="row">
+            <div class="col-12 col-lg-8 col-md-8 col-sm-6 col-xs-12 my-col">
+                <nav class="navbar navbar-dark my-nav">
+                    <a class="navbar-brand my-link " href="#">Weather Info</a>
+                    <a class="navbar-brand my-link " href="#">Home</a>
+                    <a class="navbar-brand my-link " href="#">About Us</a>
+                    <a class="navbar-brand my-link " href="#">Contact Us</a>
+                </nav>
+            </div> 
+            <div class="col-12 col-lg-4 col-md-4 col-sm-6 col-xs-12 my-col">
+                <form class="d-flex my-form" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 200px;">
+                    <button class="btn btn-outline-success my-search-btn" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- <nav class="navbar navbar-dark">
+        <div class="container-xxl my-nav">
             <div class="row">
-                <div class="col-9">
+                <div class="col-lg-9">
                     <div class="container my-nav-links">
                         <a class="navbar-brand" href="#">Weather Info</a>
                         <a class="navbar-brand" href="#">Home</a>
@@ -30,25 +49,27 @@
             </div>
             
         </div>
-      </nav>
+      </nav> -->
 
 
     <div class="container-fluid">
         <div class="row">
             <div class="my-col-wrapper">
-                <div class="col-4"></div>
-                <div class="col-4">
+                <div class="col-lg-3 col-md-2 col-sm-2 col-xs-2 col-2"></div>
+                <div class="col-lg-6 col-md-8 col-sm-8 col-xs-8 col-8">
                     <div class="city-container">
                         <h3 class="text-center py-4 text-white">Get Weather Information</h3>
                         <input type="text" placeholder="Enter City Name" class="city-name" >
-                        <div class="get-button">
-                            <button >Get Info</button>
+                        <div class="buttons">
+                            <button class="get-button">Get Info</button>
+                            <button class="clear-button">Clear</button>
                         </div>
                         <div class="weather-data-vals hidden">
                             <h6>Temp: <span class="temp-val"></span></h6>
                             <h6>Humidity: <span class="humd-val"></span></h6>
                             <h6>Pressure: <span class="pressure"></span></h6>
                             <h6>Country: <span class="country"></span></h6>
+                            <h6>City: <span class="city"></span></h6>
                             <h6><span class="error"></span></h6>
                             <div class="current-time">
                                 <span>Time:</span>
@@ -72,7 +93,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4"></div>
+                <div class="col-lg-3 col-md-2 col-sm-2 col-xs-2 col-2"></div>
             </div>
         </div>
     </div>

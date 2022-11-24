@@ -13,11 +13,15 @@ const months = [
     "December",
 ];
 
-const incorrErrorMsg =
-    "Bhai Kya kar raha hai tu, Sahi value to daal de yaar jisme sirf alpha char ho";
-const blankErrorMsg = "Bhai itna aalas sahi nahi, kuch to value daal de please";
-const invalidCityName =
-    "ERROR!!!! Ye koi city ka naam nahi hai be, city ka sahi naam to daal";
+// make an errorMsg Object
+const errorMsgCity = {
+    incorrErrorMsg:
+        "ERROR!!! You may have entered characters other than alphabets in the City Name which is not correct",
+    blankErrorMsg:
+        "ERROR!!! City Name field is blank, please enter a valid City Name",
+    invalidCityName:
+        "ERROR!!! It's not a valid city Name, please enter a valid City Name",
+};
 
 const webAPI = {
     API_Key: "8d86d7c63d6b5ff4900438e1d3c71f85",
@@ -39,8 +43,10 @@ const pressureVal = querySelectorFun(".pressure");
 const countryVal = querySelectorFun(".country");
 const error = querySelectorFun(".error");
 
-const getInfoBtn = querySelectorFun(".get-button button");
+const getInfoBtn = querySelectorFun(".get-button");
 const cityName = querySelectorFun(".city-name");
+const cityVal = querySelectorFun(".city");
+const clearBtn = querySelectorFun(".clear-button");
 
 //Display Date and Time
 getDateValues();
@@ -72,26 +78,42 @@ getInfoBtn.addEventListener("click", function () {
     if (checkPattern(city)) {
         weatherData = getWeatherData(city);
     }
+
+    //TODO: This is an error as for calls where city name is empty, checkpattern(city) ->false
+    // -> weatherData (undefied) which gives error for attaching then
+
     weatherData
         .then((data) => {
-            console.log(data);
+            // console.log(data);
             if (data.cod >= 200 && data.cod <= 299) {
                 tempVal.innerHTML = `${data.main.temp} &deg;C`;
                 humdVal.innerHTML = `${data.main.humidity} gm/m<sup>3</sup>`;
                 countryVal.innerHTML = `${data.sys.country}`;
                 pressureVal.innerHTML = `${data.main.pressure}`;
-                error.innerHTML = "";
+                cityVal.innerHTML = `${data.name}`;
+                error.innerHTML = ``;
             } else {
                 tempVal.innerHTML = ``;
                 humdVal.innerHTML = ``;
                 countryVal.innerHTML = ``;
                 pressureVal.innerHTML = ``;
-                error.innerHTML = invalidCityName;
+                cityVal.innerHTML = ``;
+                error.innerHTML = errorMsgCity.invalidCityName;
             }
         })
         .catch((err) => {
             console.log(err);
         });
+});
+
+clearBtn.addEventListener("click", function () {
+    cityName.value = ``;
+    tempVal.innerHTML = ``;
+    humdVal.innerHTML = ``;
+    countryVal.innerHTML = ``;
+    pressureVal.innerHTML = ``;
+    cityVal.innerHTML = ``;
+    error.innerHTML = ``;
 });
 
 //Functions statements/ Declarations
@@ -108,17 +130,22 @@ function getWeatherData(city) {
                 resolve(data);
             });
     });
+
+    //return fetch(url).then((response) => response.json());
 }
 
 //Pattern validation function
 
 function checkPattern(city) {
-    let pattern = /^[a-zA-Z\s]*$/;
+    let pattern = /^[a-zA-Z\s]{1,}/;
+    console.log(pattern.test(city));
 
     if (pattern.test(city) && city == "") {
-        alert(blankErrorMsg);
+        error.innerHTML = errorMsgCity.blankErrorMsg;
+        return false;
     } else if (!pattern.test(city) && city != "") {
-        alert(incorrErrorMsg);
+        error.innerHTML = errorMsgCity.incorrErrorMsg;
+        return false;
     } else if (pattern.test(city) && city != "") {
         return true;
     }
