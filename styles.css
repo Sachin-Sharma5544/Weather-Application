@@ -12,29 +12,29 @@ body{
 }
 
 .my-nav-container{
-    margin: 15px auto;
+    margin: 5px auto;
     padding: 5px 0px;
-    border: 2px solid rgb(247, 115, 67);
-    border-radius: 10px;
+    border-bottom: 1px solid rgb(247, 188, 166);
+    /* border-radius: 10px; */
 }
 
 .my-nav {
-    margin-left: 15px;
+    margin-left: 20px ;
 }
 
 .my-nav-container .my-nav{
-    max-width: 500px;
+    max-width: 600px;
 } 
 
 .my-nav .my-link{
-    font-size: 14px;
+    font-size: 16px;
     margin-left: 0px;
     padding: 5px 10px;
     border-radius: 5px;
     border: 2px solid black;
 }
 .my-nav .my-link:hover{
-    font-size: 14px;
+    font-size: 16px;
     margin-left: 0px;
     padding: 5px 10px;
     border-radius: 5px;
@@ -76,7 +76,8 @@ body{
     margin-left: 1.2vw;
     border-radius: 0.8vw;
     padding: 0.5vw 0.8vw;
-    min-width: 24vw;
+    min-width: 25vw;
+    max-width: 35vw;
     border: 2px solid rgb(241, 146, 242);
 }
 

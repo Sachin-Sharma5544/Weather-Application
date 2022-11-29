@@ -16,11 +16,11 @@ const months = [
 // make an errorMsg Object
 const errorMsgCity = {
     incorrErrorMsg:
-        "ERROR!!! You may have entered characters other than alphabets in the City Name which is not correct",
+        "ERROR!!! You may have entered characters other than alphabets in the City Name which is not correct.",
     blankErrorMsg:
-        "ERROR!!! City Name field is blank, please enter a valid City Name",
+        "ERROR!!! City Name field is blank, please enter a valid City Name.",
     invalidCityName:
-        "ERROR!!! It's not a valid city Name, please enter a valid City Name",
+        "ERROR!!! It's not a valid city, please enter a valid City Name.",
 };
 
 const webAPI = {
@@ -49,7 +49,7 @@ const cityVal = querySelectorFun(".city");
 const clearBtn = querySelectorFun(".clear-button");
 
 //Display Date and Time
-getDateValues();
+//getDateValues();
 setTimeValues(getTimeValues().hour, getTimeValues().min, getTimeValues().sec);
 setDateValues(
     getDateValues().dateVal,
@@ -89,7 +89,7 @@ getInfoBtn.addEventListener("click", function () {
                 tempVal.innerHTML = `${data.main.temp} &deg;C`;
                 humdVal.innerHTML = `${data.main.humidity} gm/m<sup>3</sup>`;
                 countryVal.innerHTML = `${data.sys.country}`;
-                pressureVal.innerHTML = `${data.main.pressure}`;
+                pressureVal.innerHTML = `${data.main.pressure} millibars`;
                 cityVal.innerHTML = `${data.name}`;
                 error.innerHTML = ``;
             } else {
@@ -127,6 +127,7 @@ function getWeatherData(city) {
         fetch(url)
             .then((response) => response.json())
             .then((data) => {
+                console.log(data);
                 resolve(data);
             });
     });
