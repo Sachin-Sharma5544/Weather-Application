@@ -39,7 +39,9 @@ body{
     padding: 5px 10px;
     border-radius: 5px;
     border: 2px solid crimson;
-    background-color: crimson;
+    color: crimson;
+    /* background-color: crimson; */
+    transition: all 0.4s ease-in-out;
 }
 
 
@@ -95,6 +97,7 @@ body{
 
 .get-button:hover {
     color: rgb(68, 136, 90);
+    transition: all 0.5s ease-in-out;
 }
 
 .get-button:active {
@@ -117,6 +120,7 @@ body{
 
 .clear-button:hover {
     color:red;
+    transition: all 0.5s ease-in-out;
 }
 
 .clear-button:active {
